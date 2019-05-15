@@ -1,11 +1,11 @@
 # coding:utf-8
 import torch
-import cPickle as p
+import pickle as p
 from utils import *
 
-model = torch.load('poetry-gen.pt')
+model = torch.load('poetry-gen.pt', map_location='cpu')
 max_length = 100
-rFile = file('wordDic', 'r')
+rFile = open('wordDic', 'r')
 word_to_ix = p.load(rFile)
 
 def invert_dict(d):
@@ -36,11 +36,11 @@ def sample(startWord='<START>'):
 
 
 
-print sample("春".decode('utf-8'))
-print sample("花".decode('utf-8'))
-print sample("秋".decode('utf-8'))
-print sample("月".decode('utf-8'))
-print sample("夜".decode('utf-8'))
-print sample("山".decode('utf-8'))
-print sample("水".decode('utf-8'))
-print sample("葉".decode('utf-8'))
+print(sample("春".decode('utf-8')))
+# print sample("花".decode('utf-8'))
+# print sample("秋".decode('utf-8'))
+# print sample("月".decode('utf-8'))
+# print sample("夜".decode('utf-8'))
+# print sample("山".decode('utf-8'))
+# print sample("水".decode('utf-8'))
+# print sample("葉".decode('utf-8'))
